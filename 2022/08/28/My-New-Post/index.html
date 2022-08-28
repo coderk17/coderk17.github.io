@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+  <meta charset="UTF-8">
+  <meta 
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta 
+    http-equiv="X-UA-Compatible" 
+    content="ie=edge">
+  <meta 
+    name="theme-color" 
+    content="#fff" 
+    id="theme-color">
+  <meta 
+    name="description" 
+    content="记录技术探索的足迹👣">
+  <link 
+    rel="icon" 
+    href="/coderk17/coderk17.github.io/">
+  <title>My New Post</title>
+  
+    
+      <meta 
+        property="og:title" 
+        content="My New Post">
+    
+    
+      <meta 
+        property="og:url" 
+        content="https://github.com/coderk17/coderk17.github.io/2022/08/28/My-New-Post/index.html">
+    
+    
+      <meta 
+        property="og:img" 
+        content="https://img.songhn.com/img/Y67gdd.png">
+    
+    
+      <meta 
+        property="og:img" 
+        content="记录技术探索的足迹👣">
+    
+    
+      <meta 
+        property="og:type" 
+        content="article">
+      <meta 
+        property="og:article:published_time" 
+        content="2022-08-28">
+      <meta 
+        property="og:article:modified_time" 
+        content="2022-08-28">
+      <meta 
+        property="og:article:author" 
+        content="WuKai">
+      
+        
+          <meta 
+            property="og:article:tag" 
+            content="Python">
+        
+      
+    
+  
+  
+  <link rel="preload" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css" as="style" >
+  <link rel="preload" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css" as="style" >
+  <link rel="preload" href="/coderk17/coderk17.github.io/css/main.css" as="style" >
+  
+  <link rel="modulepreload" href="//instant.page/5.1.0">
+  
+  <link rel="stylesheet" href="/coderk17/coderk17.github.io/css/main.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1946621_i1kgafibvw.css">
+  
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1952792_89b4ac4k4up.css">
+  
+  
+  
+    <link rel="stylesheet" href="/coderk17/coderk17.github.io/js/lib/lightbox/baguetteBox.min.css">
+  
+  <script>
+    function loadScript(url, cb) {
+      var script = document.createElement('script');
+      script.src = url;
+      if (cb) script.onload = cb;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    function loadCSS(href, data, attr) {
+      var sheet = document.createElement('link');
+      sheet.ref = 'stylesheet';
+      sheet.href = href;
+      sheet.dataset[data] = attr;
+      document.head.appendChild(sheet);
+    }
+    function changeCSS(cssFile, data, attr) {
+      var oldlink = document.querySelector(data);
+      var newlink = document.createElement("link");
+      newlink.setAttribute("rel", "stylesheet");
+      newlink.setAttribute("href", cssFile);
+      newlink.dataset.prism = attr;
+      document.head.replaceChild(newlink, oldlink);
+    }
+  </script>
+  
+    
+      
+      
+      
+      
+        
+        
+        
+        <script>
+          function prismThemeChange() {
+            if(document.getElementById('theme-color').dataset.mode === 'dark') {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/coderk17/coderk17.github.io/js/lib/prism/prism-tomorrow.min.css', '[data-prism]', 'prism-tomorrow');
+              } else {
+                loadCSS('/coderk17/coderk17.github.io/js/lib/prism/prism-tomorrow.min.css', 'prism', 'prism-tomorrow');
+              }
+            } else {
+              if(document.querySelector('[data-prism]')) {
+                changeCSS('/coderk17/coderk17.github.io/js/lib/prism/prism.min.css', '[data-prism]', 'prism');
+              } else {
+                loadCSS('/coderk17/coderk17.github.io/js/lib/prism/prism.min.css', 'prism', 'prism');
+              }
+            }
+          }
+          prismThemeChange()
+        </script>
+      
+      
+        
+        <link rel="stylesheet" href="/coderk17/coderk17.github.io/js/lib/prism/prism-line-numbers.min.css">
+      
+    
+  
+  <script>
+    // control reverse button
+    var reverseDarkList = {
+      dark: 'light',
+      light: 'dark'
+    };
+    var themeColor = {
+      dark: '#1c1c1e',
+      light: '#fff'
+    }
+    // get the data of css prefers-color-scheme
+    var getCssMediaQuery = function() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+    // reverse current darkmode setting function
+    var reverseDarkModeSetting = function() {
+      var setting = localStorage.getItem('user-color-scheme');
+      if(reverseDarkList[setting]) {
+        setting = reverseDarkList[setting];
+      } else if(setting === null) {
+        setting = reverseDarkList[getCssMediaQuery()];
+      } else {
+        return;
+      }
+      localStorage.setItem('user-color-scheme', setting);
+      return setting;
+    };
+    // apply current darkmode setting
+  </script>
+  
+    <script>
+      var setDarkmode = function(mode) {
+      var setting = mode || localStorage.getItem('user-color-scheme');
+      if(setting === getCssMediaQuery()) {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
+      } else if(reverseDarkList[setting]) {
+        document.documentElement.setAttribute('data-user-color-scheme', setting);
+        document.getElementById('theme-color').content = themeColor[setting];
+        document.getElementById('theme-color').dataset.mode = setting;
+        prismThemeChange();
+      } else {
+        document.documentElement.removeAttribute('data-user-color-scheme');
+        localStorage.removeItem('user-color-scheme');
+        document.getElementById('theme-color').content = themeColor[getCssMediaQuery()];
+        document.getElementById('theme-color').dataset.mode = getCssMediaQuery();
+        prismThemeChange();
+      }
+    };
+    setDarkmode();
+    </script>
+  
+  
+  
+    <link rel="preload" href="/coderk17/coderk17.github.io/js/lib/lightbox/baguetteBox.min.js" as="script">
+    <link rel="preload" href="/coderk17/coderk17.github.io/js/lib/lightbox/baguetteBox.min.css" as="style" >
+  
+  
+    <link rel="preload" href="/coderk17/coderk17.github.io/js/lib/lozad.min.js" as="script">
+  
+  
+  
+  
+    
+    <link rel="prefetch" href="//cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" as="script">
+  
+  
+    
+    <link rel="prefetch" href="//unpkg.com/valine/dist/Valine.min.js" as="script">
+  
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+  <body>
+    <div class="wrapper">
+       
+      <nav class="navbar">
+  <div class="navbar-logo">
+    <a class="navbar-logo-main" href="/coderk17/coderk17.github.io/coderk17/coderk17.github.io/">
+      
+      <span class="navbar-logo-dsc">wukai.site</span>
+      </a>
+  </div>
+  <div class="navbar-menu">
+    
+      <a 
+        href="/coderk17/coderk17.github.io/" 
+        class="navbar-menu-item">
+        
+          Home
+        
+      </a>
+    
+      <a 
+        href="/coderk17/coderk17.github.io/archives" 
+        class="navbar-menu-item">
+        
+          Archive
+        
+      </a>
+    
+      <a 
+        href="/coderk17/coderk17.github.io/tags" 
+        class="navbar-menu-item">
+        
+          Tags
+        
+      </a>
+    
+      <a 
+        href="/coderk17/coderk17.github.io/categories" 
+        class="navbar-menu-item">
+        
+          Categories
+        
+      </a>
+    
+    <button 
+      class="navbar-menu-item darknavbar navbar-menu-btn" 
+      aria-label="Toggle dark mode"
+      id="dark">
+      <i class="iconfont icon-weather"></i>
+    </button>
+    <button 
+      class="navbar-menu-item searchnavbar navbar-menu-btn" 
+      aria-label="Toggle search"
+      id="search">
+      <!-- <i 
+        class="iconfont icon-search" 
+        style="font-size: 1.2rem; font-weight: 400;">
+      </i> -->
+      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img"
+        class="iconify iconify--ion" width="28" height="28" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M256 80a176 176 0 1 0 176 176A176 176 0 0 0 256 80Z"></path>
+        <path fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="28"
+          d="M232 160a72 72 0 1 0 72 72a72 72 0 0 0-72-72Z"></path>
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="28"
+          d="M283.64 283.64L336 336"></path>
+      </svg>
+    </button>
+  </div>
+</nav> 
+      
+      <div 
+        id="local-search" 
+        style="display: none">
+        <input
+          class="navbar-menu-item"
+          id="search-input"
+          placeholder="请输入搜索内容..." />
+        <div id="search-content"></div>
+      </div>
+      
+      <div class="section-wrap">
+        <div class="container">
+          <div class="columns">
+            <aside class="left-column">
+              
+              <div class="card card-author">
+                
+  <img 
+    src="https://img.songhn.com/img/Y67gdd.png" 
+    class="author-img"
+    width="88"
+    height="88"
+    alt="author avatar">
+
+<p class="author-name">WuKai</p>
+<p class="author-description">记录技术探索的足迹👣</p>
+<div class="author-message">
+  <a 
+    class="author-posts-count" 
+    href="/coderk17/coderk17.github.io/archives">
+    <span>2</span>
+    <span>Posts</span>
+  </a>
+  <a 
+    class="author-categories-count" 
+    href="/coderk17/coderk17.github.io/categories">
+    <span>1</span>
+    <span>Categories</span>
+  </a>
+  <a 
+    class="author-tags-count" 
+    href="/coderk17/coderk17.github.io/tags">
+    <span>1</span>
+    <span>Tags</span>
+  </a>
+</div>
+
+  <div class="author-card-society">
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+      <div class="author-card-society-icon">
+        <a href="function link() { [native code] }">
+          <i class="iconfont  society-icon"></i>
+        </a>
+      </div>
+    
+  </div>
+
+              </div>
+               <div class="sticky-tablet">
+  
+  
+    <article class="display-when-two-columns spacer">
+      <div class="card card-content toc-card">
+        <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+
+      </div>
+    </article>
+  
+  
+  <article class="card card-content categories-widget">
+    <div class="categories-card">
+  <div class="categories-header">
+    <i 
+      class="iconfont icon-fenlei" 
+      style="padding-right: 2px;">
+    </i>Categories
+  </div>
+  <div class="categories-list">
+    
+      <a href="/coderk17/coderk17.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">
+        <div class="categories-list-item">
+          编程语言
+          <span class="categories-list-item-badge">1</span>
+        </div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  <article class="card card-content tags-widget">
+    <div class="tags-card">
+  <div class="tags-header">
+    <i 
+      class="iconfont icon-biaoqian" 
+      style="padding-right: 2px;">
+    </i>hot tags
+  </div>
+  <div class="tags-list">
+    
+      <a 
+        href="/coderk17/coderk17.github.io/tags/Python/" 
+        title="Python">
+        <div class="tags-list-item">Python</div>
+      </a>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+            <main class="main-column">
+              
+<article class="card card-content">
+  <header>
+    <h1 class="post-title">
+      My New Post
+    </h1>
+  </header>
+  <div class="post-meta post-show-meta">
+    <time datetime="2022-08-28T02:22:40.000Z">
+      <i 
+        class="iconfont icon-calendar" 
+        style="margin-right: 2px;">
+      </i>
+      <span>2022-08-28</span>
+    </time>
+    
+      <span class="dot"></span>
+      
+        <a 
+          href="/coderk17/coderk17.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/" 
+          class="post-meta-link">
+          编程语言
+        </a>
+      
+    
+    
+      <span class="dot"></span>
+      <span>1.9k words</span>
+    
+  </div>
+  
+    <div 
+      class="post-meta post-show-meta" 
+      style="margin-top: -10px;">
+      <div style="display: flex; align-items: center;">
+        <i 
+          class="iconfont icon-biaoqian" 
+          style="margin-right: 2px; font-size: 1.15rem;">
+        </i>
+        
+          
+          <a 
+            href="/coderk17/coderk17.github.io/tags/Python/" 
+            class="post-meta-link">
+            Python
+          </a>
+        
+      </div>
+    </div>
+  
+  </header>
+  <div 
+    id="section" 
+    class="post-content">
+    <pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">import</span> re
+<span class="token keyword">import</span> pty
+<span class="token keyword">import</span> json
+<span class="token keyword">import</span> time
+<span class="token keyword">import</span> fcntl
+<span class="token keyword">import</span> struct
+<span class="token keyword">import</span> termios
+<span class="token keyword">import</span> asyncio
+<span class="token keyword">from</span> json <span class="token keyword">import</span> JSONDecodeError
+
+<span class="token keyword">from</span> fastapi<span class="token punctuation">.</span>websockets <span class="token keyword">import</span> WebSocket<span class="token punctuation">,</span> WebSocketDisconnect
+
+<span class="token comment"># 文件写入状态</span>
+WRITE_FILE_ING <span class="token operator">=</span> <span class="token number">0</span>
+WRITE_FILE_SUC <span class="token operator">=</span> <span class="token number">1</span>
+WRITE_FILE_ERR <span class="token operator">=</span> <span class="token number">2</span>
+
+<span class="token comment"># 文件上传状态</span>
+UPLOAD_ING <span class="token operator">=</span> <span class="token number">0</span>
+UPLOAD_SUC <span class="token operator">=</span> <span class="token number">1</span>
+UPLOAD_ERR <span class="token operator">=</span> <span class="token number">2</span>
+
+<span class="token comment"># pty_stream服务实例状态</span>
+SERVICE_RUNING <span class="token operator">=</span> <span class="token number">1</span>
+SERVICE_CLOSED <span class="token operator">=</span> <span class="token number">2</span>
+
+
+<span class="token keyword">class</span> <span class="token class-name">PtyStream</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""终端IO流管理"""</span>
+    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> websocket<span class="token punctuation">:</span> WebSocket<span class="token punctuation">,</span> event_mode<span class="token punctuation">:</span> <span class="token builtin">bool</span> <span class="token operator">=</span> <span class="token boolean">True</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        self<span class="token punctuation">.</span>websocket <span class="token operator">=</span> websocket
+        self<span class="token punctuation">.</span>fd <span class="token operator">=</span> self<span class="token punctuation">.</span>get_pty_fd<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>block_size <span class="token operator">=</span> <span class="token number">32</span> <span class="token operator">*</span> <span class="token number">1024</span>
+        self<span class="token punctuation">.</span>fd_event_mode <span class="token operator">=</span> <span class="token boolean">None</span>
+        <span class="token comment"># 每个分片header信息长度记录大小</span>
+        self<span class="token punctuation">.</span>record_header_size <span class="token operator">=</span> <span class="token number">16</span>
+        self<span class="token punctuation">.</span>upload_dir <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>join<span class="token punctuation">(</span>os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>expanduser<span class="token punctuation">(</span><span class="token string">'~'</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"upload-data"</span><span class="token punctuation">)</span>
+        <span class="token triple-quoted-string string">""" 记录每个文件上传过程中保存的中间信息，传输完成后即销毁
+        self.upload_info = &#123;
+            $filename: &#123;
+                checked_filename: $checked_filename,                // 经过重名处理后的文件名
+                filepath: $filepath,                                // 文件路径
+                next_merge_start_index: $next_merge_start_index     // 下一次merge的起始子文件索引
+                file_write_info: &#123;                                  // 子文件写入状态
+                    $block_index: $write_status 
+                &#125;,
+                status: $status                             // 运行状态，若成功则无此状态，若由此状态表示为异常终端此次传输
+            &#125; 
+        &#125; """</span>
+        self<span class="token punctuation">.</span>upload_info <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+        <span class="token comment"># 文件名及文件分片后子文件的文件名格式模板</span>
+        self<span class="token punctuation">.</span>filepath_format <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">&#123;</span>self<span class="token punctuation">.</span>upload_dir<span class="token punctuation">&#125;</span></span><span class="token string">/%s"</span></span>
+        self<span class="token punctuation">.</span>subfilepath_format <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">&#123;</span>self<span class="token punctuation">.</span>upload_dir<span class="token punctuation">&#125;</span></span><span class="token string">/.%s_%s"</span></span>
+        <span class="token comment"># 匹配括号</span>
+        self<span class="token punctuation">.</span>re_match_bracket <span class="token operator">=</span> re<span class="token punctuation">.</span><span class="token builtin">compile</span><span class="token punctuation">(</span><span class="token string">r"（\d+）"</span><span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>status <span class="token operator">=</span> SERVICE_RUNING
+        <span class="token comment"># 注册事件监听</span>
+        self<span class="token punctuation">.</span>events <span class="token operator">=</span> websocket<span class="token punctuation">.</span>app<span class="token punctuation">.</span>events
+        self<span class="token punctuation">.</span>events<span class="token punctuation">.</span>register_read_event<span class="token punctuation">(</span>self<span class="token punctuation">.</span>fd<span class="token punctuation">,</span> self<span class="token punctuation">,</span> event_mode<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">__enter__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">return</span> self
+
+    <span class="token keyword">def</span> <span class="token function">__exit__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> exc_type<span class="token punctuation">,</span> exc_value<span class="token punctuation">,</span> exc_tb<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>status <span class="token operator">==</span> SERVICE_RUNING<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>_close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">__del__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token keyword">if</span> self<span class="token punctuation">.</span>status <span class="token operator">==</span> SERVICE_RUNING<span class="token punctuation">:</span>
+            self<span class="token punctuation">.</span>_close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">get_pty_fd</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">""" 创建伪终端，执行预处理命令并返回伪终端对应的文件描述符
+
+        :return: 伪终端的文件描述符
+        """</span>
+        pid<span class="token punctuation">,</span> fd <span class="token operator">=</span> pty<span class="token punctuation">.</span>fork<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">if</span> pid <span class="token operator">==</span> pty<span class="token punctuation">.</span>CHILD<span class="token punctuation">:</span>
+            <span class="token comment"># 启动脚本，可以执行预处理命令，或更改环境</span>
+            os<span class="token punctuation">.</span>execlp<span class="token punctuation">(</span><span class="token string">"/bin/bash"</span><span class="token punctuation">,</span> <span class="token operator">*</span><span class="token punctuation">[</span><span class="token string">"/bin/bash"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> fd
+
+    <span class="token keyword">def</span> <span class="token function">_read</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""pty输出"""</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            text <span class="token operator">=</span> os<span class="token punctuation">.</span>read<span class="token punctuation">(</span>self<span class="token punctuation">.</span>fd<span class="token punctuation">,</span> self<span class="token punctuation">.</span>block_size<span class="token punctuation">)</span>
+        <span class="token keyword">except</span> OSError <span class="token keyword">as</span> os_err<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"PtyStream:_read:</span><span class="token interpolation"><span class="token punctuation">&#123;</span>os_err<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">except</span> Exception <span class="token keyword">as</span> err<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"PtyStream:_read:</span><span class="token interpolation"><span class="token punctuation">&#123;</span>err<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> text
+
+    <span class="token keyword">def</span> <span class="token function">_write</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> data<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""pty输入"""</span>
+        os<span class="token punctuation">.</span>write<span class="token punctuation">(</span>self<span class="token punctuation">.</span>fd<span class="token punctuation">,</span> <span class="token builtin">bytes</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">_close</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""pty关闭"""</span>
+        self<span class="token punctuation">.</span>status <span class="token operator">=</span> SERVICE_CLOSED
+        os<span class="token punctuation">.</span>close<span class="token punctuation">(</span>self<span class="token punctuation">.</span>fd<span class="token punctuation">)</span>
+        self<span class="token punctuation">.</span>events<span class="token punctuation">.</span>unregister<span class="token punctuation">(</span>self<span class="token punctuation">.</span>fd<span class="token punctuation">)</span>
+        <span class="token keyword">raise</span> WebSocketDisconnect<span class="token punctuation">(</span><span class="token string">"终端关闭，断开连接"</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">on_read</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""读取pty stdout并通过websocket发送给客户端"""</span>
+        text <span class="token operator">=</span> self<span class="token punctuation">.</span>_read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">await</span> self<span class="token punctuation">.</span>websocket<span class="token punctuation">.</span>send_text<span class="token punctuation">(</span>text<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> text<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">6</span><span class="token punctuation">:</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">b'exit\r\n'</span><span class="token punctuation">:</span>
+            close_msg <span class="token operator">=</span> <span class="token string">"您已经断开连接，输入已关闭，请尝试另一次连接。"</span>
+            <span class="token keyword">await</span> self<span class="token punctuation">.</span>websocket<span class="token punctuation">.</span>send_text<span class="token punctuation">(</span><span class="token builtin">bytes</span><span class="token punctuation">(</span>close_msg<span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            self<span class="token punctuation">.</span>_close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">clear_stdout_buffer</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""清空pty stdout缓冲区"""</span>
+        self<span class="token punctuation">.</span>_read<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">exec_command</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> command<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">""" pty执行命令行
+
+        :param command: 要执行的命令行字符串
+        :return:
+        """</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            os<span class="token punctuation">.</span>write<span class="token punctuation">(</span>self<span class="token punctuation">.</span>fd<span class="token punctuation">,</span> <span class="token builtin">bytes</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"</span><span class="token interpolation"><span class="token punctuation">&#123;</span>command<span class="token punctuation">&#125;</span></span><span class="token string">\r"</span></span><span class="token punctuation">,</span> encoding<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">except</span> Exception <span class="token keyword">as</span> err<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"exec_command:</span><span class="token interpolation"><span class="token punctuation">&#123;</span>command<span class="token punctuation">&#125;</span></span><span class="token string">:</span><span class="token interpolation"><span class="token punctuation">&#123;</span>err<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">resize_window</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> rows<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> cols<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">""" pty终端大小设置
+
+        :param rows: 行数
+        :param cols: 列数
+        :return:
+        """</span>
+        width<span class="token punctuation">,</span> height <span class="token operator">=</span> cols<span class="token punctuation">,</span> rows
+        TIOCSWINSZ <span class="token operator">=</span> <span class="token builtin">getattr</span><span class="token punctuation">(</span>termios<span class="token punctuation">,</span> <span class="token string">'TIOCSWINSZ'</span><span class="token punctuation">,</span> <span class="token operator">-</span><span class="token number">2146929561</span><span class="token punctuation">)</span>
+        s <span class="token operator">=</span> struct<span class="token punctuation">.</span>pack<span class="token punctuation">(</span><span class="token string">'HHHH'</span><span class="token punctuation">,</span> width<span class="token punctuation">,</span> height<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+        fcntl<span class="token punctuation">.</span>ioctl<span class="token punctuation">(</span>self<span class="token punctuation">.</span>fd<span class="token punctuation">,</span> TIOCSWINSZ<span class="token punctuation">,</span> s<span class="token punctuation">)</span>
+
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">process_pty_recv</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">""" 传入pty数据的处理逻辑
+
+        :param message: 传入pty的数据
+        :return:
+        """</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>status <span class="token operator">!=</span> SERVICE_RUNING<span class="token punctuation">:</span>
+                <span class="token keyword">raise</span> WebSocketDisconnect<span class="token punctuation">(</span><span class="token string">"终端关闭，断开连接"</span><span class="token punctuation">)</span>
+            <span class="token keyword">try</span><span class="token punctuation">:</span>
+                msg <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+            <span class="token keyword">except</span> JSONDecodeError<span class="token punctuation">:</span>
+                <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"process_pty_recv:%s"</span> <span class="token operator">%</span> message<span class="token punctuation">)</span>
+
+            resize <span class="token operator">=</span> msg<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'resize'</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> resize <span class="token keyword">and</span> <span class="token builtin">len</span><span class="token punctuation">(</span>resize<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
+                <span class="token keyword">try</span><span class="token punctuation">:</span>
+                    self<span class="token punctuation">.</span>resize_window<span class="token punctuation">(</span><span class="token operator">*</span>resize<span class="token punctuation">)</span>
+                <span class="token keyword">except</span> Exception <span class="token keyword">as</span> err<span class="token punctuation">:</span>
+                    <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"process_pty_recv:resize:%s"</span> <span class="token operator">%</span> err<span class="token punctuation">)</span>
+
+            data <span class="token operator">=</span> msg<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">'data'</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> data <span class="token keyword">and</span> <span class="token builtin">isinstance</span><span class="token punctuation">(</span>data<span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>_write<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+        <span class="token keyword">except</span> WebSocketDisconnect <span class="token keyword">as</span> disconnect_err<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> disconnect_err
+        <span class="token keyword">except</span> Exception <span class="token keyword">as</span> err<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"process_pty_recv:%s"</span> <span class="token operator">%</span> err<span class="token punctuation">)</span>
+
+    <span class="token keyword">def</span> <span class="token function">_check_filename</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> filename<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> max_dup_file_nums<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">str</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">""" 检测文件名是否已存在，若已存在，则在该文件名中加上重名标识符
+
+        若上传文件夹中已包含a.txt，再次上传a.txt，会生成一个a（1）.txt文件，
+        若再次上传a.txt会生成a（2）.txt，可更改max_dup_file_nums控制标识符
+        最大值，默认为5
+
+        :param filename: 检测的文件名
+        :param max_dup_file_nums: 添加的标识符最大值
+        :return: 检测处理完成后的文件名
+        """</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>max_dup_file_nums <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            exist_status <span class="token operator">=</span> os<span class="token punctuation">.</span>path<span class="token punctuation">.</span>exists<span class="token punctuation">(</span>self<span class="token punctuation">.</span>filepath_format <span class="token operator">%</span> filename<span class="token punctuation">)</span>
+            <span class="token keyword">if</span> exist_status<span class="token punctuation">:</span>
+                <span class="token keyword">if</span> i <span class="token operator">==</span> max_dup_file_nums<span class="token punctuation">:</span>
+                    <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"Duplicated file is too much, please change file name."</span><span class="token punctuation">)</span>
+                <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>filename<span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">1024</span><span class="token punctuation">:</span>
+                    <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"Filename's length is too long."</span><span class="token punctuation">)</span>
+
+                <span class="token keyword">if</span> self<span class="token punctuation">.</span>re_match_bracket<span class="token punctuation">.</span>search<span class="token punctuation">(</span>filename<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                    filename <span class="token operator">=</span> self<span class="token punctuation">.</span>re_match_bracket<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">""</span><span class="token punctuation">,</span> filename<span class="token punctuation">)</span>
+                <span class="token keyword">if</span> <span class="token string">"."</span> <span class="token keyword">in</span> filename<span class="token punctuation">:</span>
+                    filename_split <span class="token operator">=</span> filename<span class="token punctuation">.</span>split<span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span>
+                    filename <span class="token operator">=</span> <span class="token string">"."</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span>filename_split<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string-interpolation"><span class="token string">f"（</span><span class="token interpolation"><span class="token punctuation">&#123;</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">&#125;</span></span><span class="token string">）"</span></span> <span class="token operator">+</span> <span class="token string">"."</span> <span class="token operator">+</span> filename_split<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span>
+                <span class="token keyword">else</span><span class="token punctuation">:</span>
+                    filename <span class="token operator">=</span> filename <span class="token operator">+</span> <span class="token string-interpolation"><span class="token string">f"（</span><span class="token interpolation"><span class="token punctuation">&#123;</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">&#125;</span></span><span class="token string">）"</span></span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                <span class="token keyword">break</span>
+        <span class="token keyword">return</span> filename
+
+    <span class="token keyword">def</span> <span class="token function">_write_file</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> filepath<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> data<span class="token punctuation">:</span> <span class="token builtin">bytes</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">""" 指定文件路径，写入数据，并返回写入成功状态
+
+        :param filepath: 文件路径
+        :param data: 数据
+        :return: 成功状态，WRITE_FILE_ERR表示写入失败，WRITE_FILE_SUC表示写入成功
+        """</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            <span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span>filepath<span class="token punctuation">,</span> <span class="token string">"wb+"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
+                f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+        <span class="token keyword">except</span> Exception <span class="token keyword">as</span> err<span class="token punctuation">:</span>
+            status <span class="token operator">=</span> WRITE_FILE_ERR
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            status <span class="token operator">=</span> WRITE_FILE_SUC
+        <span class="token keyword">return</span> status
+
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">_merge_sub_file</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> ori_filename<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> start_index<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> end_index<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">,</span> timeout<span class="token punctuation">:</span> <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">""" 合并上传文件的切片子文件
+
+        :param ori_filename: 客户端上传的文件原名
+        :param start_index: 处理的起始子文件索引
+        :param end_index: 处理的终止子文件索引
+        :param timeout: 处理的超时时间
+        :return:
+        """</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            upload_info <span class="token operator">=</span> self<span class="token punctuation">.</span>upload_info<span class="token punctuation">[</span>ori_filename<span class="token punctuation">]</span>
+            file_write_info <span class="token operator">=</span> upload_info<span class="token punctuation">[</span><span class="token string">"file_write_info"</span><span class="token punctuation">]</span>
+            filepath <span class="token operator">=</span> upload_info<span class="token punctuation">[</span><span class="token string">"filepath"</span><span class="token punctuation">]</span>
+            checked_filename <span class="token operator">=</span> upload_info<span class="token punctuation">[</span><span class="token string">"checked_filename"</span><span class="token punctuation">]</span>
+            check_indexes <span class="token operator">=</span> <span class="token builtin">list</span><span class="token punctuation">(</span><span class="token builtin">range</span><span class="token punctuation">(</span>start_index<span class="token punctuation">,</span> end_index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            starttime <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> starttime<span class="token punctuation">)</span> <span class="token operator">&lt;</span> timeout<span class="token punctuation">:</span>
+                new_check_indexes <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+                <span class="token keyword">for</span> i <span class="token keyword">in</span> check_indexes<span class="token punctuation">:</span>
+                    <span class="token keyword">if</span> i <span class="token keyword">not</span> <span class="token keyword">in</span> file_write_info<span class="token punctuation">:</span>
+                        <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"上传文件传输包缺失：filename:%s,start_index:%s,end_index:%s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>ori_filename<span class="token punctuation">,</span> start_index<span class="token punctuation">,</span> end_index<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token keyword">if</span> file_write_info<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> WRITE_FILE_ERR<span class="token punctuation">:</span>
+                        <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"上传文件传输包写入失败：filename:%s,start_index:%s,end_index:%s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>ori_filename<span class="token punctuation">,</span> start_index<span class="token punctuation">,</span> end_index<span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token keyword">if</span> file_write_info<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> WRITE_FILE_ING<span class="token punctuation">:</span>
+                        new_check_indexes<span class="token punctuation">.</span>append<span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+                check_indexes <span class="token operator">=</span> new_check_indexes
+                <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>check_indexes<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                    <span class="token keyword">break</span>
+                <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span>
+            <span class="token keyword">if</span> <span class="token builtin">len</span><span class="token punctuation">(</span>check_indexes<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"上传文件处理超时，filename: %s"</span> <span class="token operator">%</span> ori_filename<span class="token punctuation">)</span>
+            <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>start_index<span class="token punctuation">,</span> end_index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                subfilepath <span class="token operator">=</span> self<span class="token punctuation">.</span>subfilepath_format <span class="token operator">%</span> <span class="token punctuation">(</span>checked_filename<span class="token punctuation">,</span> i<span class="token punctuation">)</span>
+                command_merge <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"cat </span><span class="token interpolation"><span class="token punctuation">&#123;</span>subfilepath<span class="token punctuation">&#125;</span></span><span class="token string"> >> </span><span class="token interpolation"><span class="token punctuation">&#123;</span>filepath<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span>
+                self<span class="token punctuation">.</span>exec_command<span class="token punctuation">(</span>command_merge<span class="token punctuation">)</span>
+                command_del_sub <span class="token operator">=</span> <span class="token string-interpolation"><span class="token string">f"rm </span><span class="token interpolation"><span class="token punctuation">&#123;</span>subfilepath<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span>
+                self<span class="token punctuation">.</span>exec_command<span class="token punctuation">(</span>command_del_sub<span class="token punctuation">)</span>
+        <span class="token keyword">except</span> Exception <span class="token keyword">as</span> err<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"_merge_sub_file:%s"</span> <span class="token operator">%</span> err<span class="token punctuation">)</span>
+
+    <span class="token keyword">async</span> <span class="token keyword">def</span> <span class="token function">process_recv_file_bytes</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> message<span class="token punctuation">:</span> <span class="token builtin">bytes</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">""" 文件上传中获取数据流的处理程序
+
+        :param message: 文件上传中获取的数据流
+        :return:
+        """</span>
+        <span class="token keyword">try</span><span class="token punctuation">:</span>
+            <span class="token keyword">if</span> self<span class="token punctuation">.</span>status <span class="token operator">!=</span> SERVICE_RUNING<span class="token punctuation">:</span>
+                <span class="token keyword">raise</span> WebSocketDisconnect<span class="token punctuation">(</span><span class="token string">"终端关闭，断开连接"</span><span class="token punctuation">)</span>
+            <span class="token comment"># 当子文件个数达到merge_block_size时执行merge到父文件操作</span>
+            MERGE_BLOCK_SIZE<span class="token operator">=</span> <span class="token number">10</span>
+            <span class="token comment"># FIXME 文件传输如果有阻塞会对终端操作产生影响，改为非阻塞文件传输，目前分片大小为1M上传无阻塞</span>
+            <span class="token comment"># 目前只有上传文件功能，没有上传文件夹功能，后期如果需要可以加上</span>
+            header_info_end_index <span class="token operator">=</span> <span class="token builtin">int</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token builtin">str</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span> <span class="token keyword">for</span> x <span class="token keyword">in</span> message<span class="token punctuation">[</span><span class="token punctuation">:</span>self<span class="token punctuation">.</span>record_header_size<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            header_info <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>message<span class="token punctuation">[</span>self<span class="token punctuation">.</span>record_header_size<span class="token punctuation">:</span> header_info_end_index<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            ori_filename <span class="token operator">=</span> header_info<span class="token punctuation">[</span><span class="token string">"create_file"</span><span class="token punctuation">]</span>
+            block_index <span class="token operator">=</span> header_info<span class="token punctuation">[</span><span class="token string">"block_index"</span><span class="token punctuation">]</span>
+            end_signal <span class="token operator">=</span> header_info<span class="token punctuation">.</span>get<span class="token punctuation">(</span><span class="token string">"end_signal"</span><span class="token punctuation">,</span> <span class="token boolean">False</span><span class="token punctuation">)</span>
+            message <span class="token operator">=</span> message<span class="token punctuation">[</span>header_info_end_index<span class="token punctuation">:</span><span class="token punctuation">]</span>
+            <span class="token keyword">if</span> block_index <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                <span class="token comment"># 第一个数据块检查文件名重名并创建文件，同时初始化传输过程数据（upload_info）</span>
+                checked_filename <span class="token operator">=</span> self<span class="token punctuation">.</span>_check_filename<span class="token punctuation">(</span>ori_filename<span class="token punctuation">,</span> max_dup_file_nums<span class="token operator">=</span><span class="token number">5</span><span class="token punctuation">)</span>
+                filepath <span class="token operator">=</span> self<span class="token punctuation">.</span>filepath_format <span class="token operator">%</span> checked_filename
+                self<span class="token punctuation">.</span>exec_command<span class="token punctuation">(</span>command<span class="token operator">=</span><span class="token string-interpolation"><span class="token string">f"touch </span><span class="token interpolation"><span class="token punctuation">&#123;</span>filepath<span class="token punctuation">&#125;</span></span><span class="token string">"</span></span><span class="token punctuation">)</span>
+
+                <span class="token comment"># TODO 同时上传两个同名文件，需要前端在header里加一个文件唯一标识符字段，</span>
+                <span class="token comment"># 可以用文件内容哈希值，可以实现同时上传，不过目前来看没有必要加上</span>
+                <span class="token keyword">if</span> ori_filename <span class="token keyword">in</span> self<span class="token punctuation">.</span>upload_info<span class="token punctuation">:</span>
+                    <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"正在上传一个同名文件，不能同时上传两个同名文件"</span><span class="token punctuation">)</span>
+                upload_info <span class="token operator">=</span> self<span class="token punctuation">.</span>upload_info<span class="token punctuation">.</span>setdefault<span class="token punctuation">(</span>ori_filename<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+                upload_info<span class="token punctuation">[</span><span class="token string">"checked_filename"</span><span class="token punctuation">]</span> <span class="token operator">=</span> checked_filename
+                upload_info<span class="token punctuation">[</span><span class="token string">"filepath"</span><span class="token punctuation">]</span> <span class="token operator">=</span> filepath
+                upload_info<span class="token punctuation">[</span><span class="token string">"file_write_info"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+                upload_info<span class="token punctuation">[</span><span class="token string">"next_merge_start_index"</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+
+            upload_info <span class="token operator">=</span> self<span class="token punctuation">.</span>upload_info<span class="token punctuation">[</span>ori_filename<span class="token punctuation">]</span>
+            checked_filename <span class="token operator">=</span> upload_info<span class="token punctuation">[</span><span class="token string">"checked_filename"</span><span class="token punctuation">]</span>
+            file_write_info <span class="token operator">=</span> upload_info<span class="token punctuation">[</span><span class="token string">"file_write_info"</span><span class="token punctuation">]</span>
+            <span class="token comment"># 接收信息，写入子文件，并记录写入状态</span>
+            file_write_info<span class="token punctuation">.</span>setdefault<span class="token punctuation">(</span>block_index<span class="token punctuation">,</span> WRITE_FILE_ING<span class="token punctuation">)</span>
+            subfilepath <span class="token operator">=</span> self<span class="token punctuation">.</span>subfilepath_format <span class="token operator">%</span> <span class="token punctuation">(</span>checked_filename<span class="token punctuation">,</span> block_index<span class="token punctuation">)</span>
+            write_status <span class="token operator">=</span> self<span class="token punctuation">.</span>_write_file<span class="token punctuation">(</span>subfilepath<span class="token punctuation">,</span> message<span class="token punctuation">)</span>
+            file_write_info<span class="token punctuation">[</span>block_index<span class="token punctuation">]</span> <span class="token operator">=</span> write_status
+
+            <span class="token comment"># merge子文件内容到结果文件中</span>
+            <span class="token comment"># 可优化为merge_block_size个线程执行，不影响总顺序，</span>
+            <span class="token comment"># 因为每次合并时会给这merge_block_size个文件检查存在性并排序</span>
+            next_merge_start_index <span class="token operator">=</span> upload_info<span class="token punctuation">[</span><span class="token string">"next_merge_start_index"</span><span class="token punctuation">]</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">(</span>block_index <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">%</span> MERGE_BLOCK_SIZE <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span>
+                <span class="token keyword">or</span> end_signal<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">await</span> self<span class="token punctuation">.</span>_merge_sub_file<span class="token punctuation">(</span>
+                    ori_filename<span class="token punctuation">,</span>
+                    start_index<span class="token operator">=</span>next_merge_start_index<span class="token punctuation">,</span>
+                    end_index<span class="token operator">=</span>block_index
+                <span class="token punctuation">)</span>
+                upload_info<span class="token punctuation">[</span><span class="token string">"next_merge_start_index"</span><span class="token punctuation">]</span> <span class="token operator">=</span> block_index <span class="token operator">+</span> <span class="token number">1</span>
+
+            <span class="token keyword">if</span> end_signal<span class="token punctuation">:</span>
+                <span class="token keyword">del</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>upload_info<span class="token punctuation">[</span>ori_filename<span class="token punctuation">]</span><span class="token punctuation">)</span>
+        <span class="token keyword">except</span> WebSocketDisconnect <span class="token keyword">as</span> disconnect_err<span class="token punctuation">:</span>
+            <span class="token keyword">raise</span> disconnect_err
+        <span class="token keyword">except</span> Exception <span class="token keyword">as</span> err<span class="token punctuation">:</span>
+            <span class="token comment"># TODO 报错时保存其他上下文，如已传输文件内容哈希，各子文件名及哈希，多请求几个包校验前端传输分片内容是否可信任</span>
+            <span class="token keyword">if</span> ori_filename <span class="token keyword">in</span> self<span class="token punctuation">.</span>upload_info<span class="token punctuation">:</span>
+                self<span class="token punctuation">.</span>upload_info<span class="token punctuation">[</span>ori_filename<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">"status"</span><span class="token punctuation">]</span> <span class="token operator">=</span> UPLOAD_ERR
+            resp <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+                <span class="token string">"create_file"</span><span class="token punctuation">:</span> header_info<span class="token punctuation">[</span><span class="token string">"create_file"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token string">"block_index"</span><span class="token punctuation">:</span> block_index<span class="token punctuation">,</span>
+                <span class="token string">"block_end_signal"</span><span class="token punctuation">:</span> end_signal<span class="token punctuation">,</span>
+                <span class="token string">"msg"</span><span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">(</span>err<span class="token punctuation">)</span><span class="token punctuation">,</span>
+                <span class="token string">"status_code"</span><span class="token punctuation">:</span> <span class="token number">500</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token keyword">raise</span> Exception<span class="token punctuation">(</span><span class="token string">"process_recv_file_bytes:%s"</span> <span class="token operator">%</span> err<span class="token punctuation">)</span>
+        <span class="token keyword">else</span><span class="token punctuation">:</span>
+            resp <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+                <span class="token string">"create_file"</span><span class="token punctuation">:</span> header_info<span class="token punctuation">[</span><span class="token string">"create_file"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+                <span class="token string">"block_index"</span><span class="token punctuation">:</span> block_index<span class="token punctuation">,</span>
+                <span class="token string">"block_end_signal"</span><span class="token punctuation">:</span> end_signal<span class="token punctuation">,</span>
+                <span class="token string">"msg"</span><span class="token punctuation">:</span> <span class="token string">"OK"</span><span class="token punctuation">,</span>
+                <span class="token string">"status_code"</span><span class="token punctuation">:</span> <span class="token number">200</span>
+            <span class="token punctuation">&#125;</span>
+        <span class="token keyword">finally</span><span class="token punctuation">:</span>
+            <span class="token keyword">await</span> self<span class="token punctuation">.</span>websocket<span class="token punctuation">.</span>send_text<span class="token punctuation">(</span>json<span class="token punctuation">.</span>dumps<span class="token punctuation">(</span>resp<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>函数：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>a</mi><mi>n</mi></msub><msup><mi>x</mi><mi>n</mi></msup><mo>+</mo><msub><mi>a</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><msup><mi>x</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mo>+</mo><msub><mi>a</mi><mrow><mi>n</mi><mo>−</mo><mn>2</mn></mrow></msub><msup><mi>x</mi><mrow><mi>n</mi><mo>−</mo><mn>2</mn></mrow></msup></mrow><mo>+</mo><mo>⋯</mo></mrow><annotation encoding="application/x-tex">{f(x)=a_nx^n+a_{n-1}x^{n-1}+a_{n-2}x^{n-2}}+\cdots</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.664392em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.31em;vertical-align:0em;"></span><span class="minner">⋯</span></span></span></span></p>
+<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mrow><mrow><mi>f</mi><mo stretchy="false">(</mo><mi>x</mi><mo stretchy="false">)</mo><mo>=</mo><msub><mi>a</mi><mi>n</mi></msub><msup><mi>x</mi><mi>n</mi></msup><mo>+</mo><msub><mi>a</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msub><msup><mi>x</mi><mrow><mi>n</mi><mo>−</mo><mn>1</mn></mrow></msup><mo>+</mo><msub><mi>a</mi><mrow><mi>n</mi><mo>−</mo><mn>2</mn></mrow></msub><msup><mi>x</mi><mrow><mi>n</mi><mo>−</mo><mn>2</mn></mrow></msup></mrow><mo>+</mo><mo>⋯</mo></mrow></mtd><mtd width="50%"></mtd><mtd><mtext>(1.1)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">{f(x)=a_nx^n+a_{n-1}x^{n-1}+a_{n-2}x^{n-2}}+\cdots \tag{1.1}
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10764em;">f</span><span class="mopen">(</span><span class="mord mathnormal">x</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7143919999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.864108em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.301108em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">2</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.864108em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span><span class="mbin mtight">−</span><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.31em;vertical-align:0em;"></span><span class="minner">⋯</span></span><span class="tag"><span class="strut" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">1</span><span class="mord">.</span><span class="mord">1</span></span><span class="mord">)</span></span></span></span></span></span></p>
+
+  </div>
+  <div>
+    
+      <div 
+        class="post-note note-warning copyright" 
+        style="margin-top: 42px">
+        <p>
+          <span style="font-weight: bold;">作者：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="/coderk17/coderk17.github.io/about">
+            WuKai
+          </a>
+        </p>
+        <p>
+          <span style="font-weight: bold;">文章链接：</span><a 
+            target="_blank" 
+            rel="nofollow noopener noreferrer" 
+            href="https://github.com/coderk17/coderk17.github.io/2022/08/28/My-New-Post/">
+            https://github.com/coderk17/coderk17.github.io/2022/08/28/My-New-Post/
+          </a>
+        </p>
+        <p><span style="font-weight: bold;">版权声明：</span>本博客所有文章除特别声明外，均采用<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0 协议</a>。转载请注明出处！</p>
+      </div>
+    
+  </div>
+</article>
+<div class="nav">
+  
+  
+    <div class="nav-item-next">
+      <a 
+        href="/coderk17/coderk17.github.io/2022/08/28/hello-world/" 
+        class="nav-link">
+        <div>
+          <div class="nav-label">Next</div>
+          
+            <div class="nav-title">Hello World </div>
+          
+        </div>
+        <i class="iconfont icon-right nav-next-icon"></i>
+      </a>
+    </div>
+  
+</div>
+
+  <div 
+    class="card card-content comment-card" 
+    style="margin-top: 16px;">
+    <div class="comment-card-title">评论</div>
+    
+  <div id="vcomments"></div>
+  
+  <script>
+    loadScript("//unpkg.com/valine/dist/Valine.min.js");
+    var oldLoadVa = window.onload;
+    window.onload = function () {
+      oldLoadVa && oldLoadVa();
+      new Valine({
+        el: '#vcomments',
+        appId: 'aJsheUxyREQhISn7dCgpKB7P-gzGzoHsz',
+        appKey: 'FJYBF7gRApqD8c3zY2MnuBWN',
+        placeholder: '留下您的足迹...',
+        path: window.location.pathname,
+        avatar: 'mp',
+        meta: ["nick","mail","link"],
+        pageSize: '10',
+        lang: '',
+        visitor: 'true',
+        highlight: true,
+        recordIP: true,
+        
+        
+        
+        enableQQ: 'true',
+        requiredFields: [],
+      });
+    };
+  </script>
+
+  </div>
+
+<div 
+  class="card card-content toc-card" 
+  id="mobiletoc">
+  <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+
+</div>
+            </main>
+            <aside class="right-column">
+              <div class="sticky-widescreen">
+  
+  
+    <article class="card card-content toc-card">
+      <div class="toc-header">
+  <i 
+    class="iconfont icon-menu" 
+    style="padding-right: 2px;">
+  </i>TOC
+</div>
+
+    </article>
+  
+  
+  <article class="card card-content">
+    <div class="recent-posts-card">
+  <div class="recent-posts-header">
+    <i 
+      class="iconfont icon-wenzhang_huaban" 
+      style="padding-right: 2px;">
+    </i>Recent Posts
+  </div>
+  <div class="recent-posts-list">
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-08-28</div>
+        <a href="/coderk17/coderk17.github.io/2022/08/28/My-New-Post/"><div class="recent-posts-item-content">My New Post</div></a>
+      </div>
+    
+      <div class="recent-posts-item">
+        <div class="recent-posts-item-title">2022-08-28</div>
+        <a href="/coderk17/coderk17.github.io/2022/08/28/hello-world/"><div class="recent-posts-item-content">Hello World</div></a>
+      </div>
+    
+  </div>
+</div>
+  </article>
+  
+  
+</div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <footer class="footer">
+  <div class="footer-container">
+    <div>
+      <div class="footer-dsc">
+        <span>
+          Copyright ©
+          
+            2020
+          
+          
+                - 
+                2022
+          
+        </span>
+        &nbsp;
+        <a 
+          href="/coderk17/coderk17.github.io/" 
+          class="footer-link">
+          wukai.site
+        </a>
+      </div>
+    </div>
+
+    
+      <div class="footer-dsc">
+        
+          Powered by
+          <a 
+            href="https://hexo.io/" 
+            class="footer-link" 
+            target="_blank" 
+            rel="nofollow noopener noreferrer">
+            &nbsp;Hexo
+          </a>
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          Theme -
+          <a 
+            href="https://github.com/theme-kaze" 
+            class="footer-link" 
+            target="_blank"
+            rel="nofollow noopener noreferrer">
+            &nbsp;Kaze
+          </a>
+        
+      </div>
+    
+    
+    
+    
+      <div class="footer-dsc">
+        
+          本站总访问量<span id="busuanzi_value_site_pv"></span>次
+        
+        
+          <span>&nbsp;|&nbsp;</span>
+        
+        
+          本站总访客数<span id="busuanzi_value_site_uv"></span>次
+        
+      </div>
+      
+    
+</footer>
+ 
+    
+  <a 
+    role="button" 
+    id="scrollbutton" 
+    class="basebutton" 
+    aria-label="回到顶部">
+    <i class="iconfont icon-arrowleft button-icon"></i>
+  </a>
+
+<a 
+  role="button" 
+  id="menubutton"
+  aria-label="menu button"
+  class="basebutton">
+  <i class="iconfont icon-menu button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="popbutton" 
+  class="basebutton" 
+  aria-label="控制中心">
+  <i class="iconfont icon-expand button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="darkbutton" 
+  class="basebutton darkwidget" 
+  aria-label="夜色模式">
+  <i class="iconfont icon-weather button-icon"></i>
+</a>
+<a 
+  role="button" 
+  id="searchbutton" 
+  class="basebutton searchwidget" 
+  aria-label="搜索">
+  <i class="iconfont icon-search button-icon"></i>
+</a> 
+     
+     
+      
+
+  
+  
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css">
+
+  
+ 
+     
+     
+      <script>
+  var addImgLayout = function () {
+    var img = document.querySelectorAll('.post-content img')
+    var i
+    for (i = 0; i < img.length; i++) {
+      var wrapper = document.createElement('a')
+      wrapper.setAttribute('href', img[i].getAttribute('data-src'))
+      wrapper.setAttribute('aria-label', 'illustration')
+      wrapper.style.cssText =
+        'width: 100%; display: flex; justify-content: center;'
+      if (img[i].alt) wrapper.dataset.caption = img[i].alt
+      wrapper.dataset.nolink = true
+      img[i].before(wrapper)
+      wrapper.append(img[i])
+      var divWrap = document.createElement('div')
+      divWrap.classList.add('gallery')
+      wrapper.before(divWrap)
+      divWrap.append(wrapper)
+    }
+    baguetteBox.run('.gallery')
+  }
+</script>
+<script>
+  loadScript(
+    "/coderk17/coderk17.github.io/js/lib/lightbox/baguetteBox.min.js",
+    addImgLayout
+  )
+</script>
+ 
+     
+     
+    <script src="/coderk17/coderk17.github.io/js/main.js"></script> 
+    
+      <script> 
+        loadScript('/coderk17/coderk17.github.io/js/lib/busuanzi.min.js') 
+      </script>
+     
+    
+      <script>
+        var addLazyload = function () {
+          var observer = lozad('.lozad', {
+            load: function (el) {
+              el.srcset = el.getAttribute('data-src')
+            },
+            loaded: function (el) {
+              el.classList.add('loaded')
+            },
+          })
+          observer.observe()
+        }
+      </script>
+      <script>
+        loadScript('/coderk17/coderk17.github.io/js/lib/lozad.min.js', addLazyload)
+      </script>
+    
+    <script src="//instant.page/5.1.0" type="module"
+      integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
+    
+    
+      <script>
+        setTimeout(() => {localSearch("search.json")}, 0)
+      </script>
+    
+  </body>
+</html>
