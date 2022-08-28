@@ -18,12 +18,12 @@
   <link 
     rel="icon" 
     href="/images/favicon.svg">
-  <title>进程、线程与IO多路复用</title>
+  <title>进程、线程与I/O多路复用</title>
   
     
       <meta 
         property="og:title" 
-        content="进程、线程与IO多路复用">
+        content="进程、线程与I/O多路复用">
     
     
       <meta 
@@ -33,7 +33,7 @@
     
       <meta 
         property="og:img" 
-        content="/images/avatar.svg">
+        content="/images/factory.jpeg">
     
     
       <meta 
@@ -65,7 +65,15 @@
         
           <meta 
             property="og:article:tag" 
+            content="windows nt">
+        
+          <meta 
+            property="og:article:tag" 
             content="并发编程">
+        
+          <meta 
+            property="og:article:tag" 
+            content="c/c++">
         
       
     
@@ -344,7 +352,7 @@
   <a 
     class="author-tags-count" 
     href="/tags">
-    <span>3</span>
+    <span>5</span>
     <span>标签</span>
   </a>
 </div>
@@ -497,7 +505,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B"><span class="toc-text"> 并发编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B"><span class="toc-text"> 进程</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B"><span class="toc-text"> 进程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text"> 进程是什么?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E5%88%9B%E5%BB%BA"><span class="toc-text"> 进程创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="toc-text"> 进程间通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text"> </span></a></li></ol></li></ol>
       </div>
     </article>
   
@@ -534,9 +542,21 @@
   <div class="tags-list">
     
       <a 
+        href="/tags/c-c/" 
+        title="c/c++">
+        <div class="tags-list-item">c/c++</div>
+      </a>
+    
+      <a 
         href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" 
         title="并发编程">
         <div class="tags-list-item">并发编程</div>
+      </a>
+    
+      <a 
+        href="/tags/windows-nt/" 
+        title="windows nt">
+        <div class="tags-list-item">windows nt</div>
       </a>
     
       <a 
@@ -560,10 +580,19 @@
             </aside>
             <main class="main-column">
               
+  <div class="image-wrapper">
+    <img 
+      src="/images/factory.jpeg" 
+      data-src="/images/factory.jpeg"
+      srcset="data:image/svg+xml,%3Csvg%20xmlns=&#39;http://www.w3.org/2000/svg&#39;%20viewBox=&#39;0%200%20300%20300&#39;%3E%3C/svg%3E"
+      class="image lozad"
+      alt="进程、线程与I/O多路复用 thumbnail">
+  </div>
+
 <article class="card card-content">
   <header>
     <h1 class="post-title">
-      进程、线程与IO多路复用
+      进程、线程与I/O多路复用
     </h1>
   </header>
   <div class="post-meta post-show-meta">
@@ -586,7 +615,7 @@
     
     
       <span class="dot"></span>
-      <span>49 字</span>
+      <span>93 字</span>
     
   </div>
   
@@ -619,9 +648,27 @@
             <span class="dot"></span>
           
           <a 
+            href="/tags/windows-nt/" 
+            class="post-meta-link">
+            windows nt
+          </a>
+        
+          
+            <span class="dot"></span>
+          
+          <a 
             href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" 
             class="post-meta-link">
             并发编程
+          </a>
+        
+          
+            <span class="dot"></span>
+          
+          <a 
+            href="/tags/c-c/" 
+            class="post-meta-link">
+            c/c++
           </a>
         
       </div>
@@ -631,10 +678,13 @@
   <div 
     id="section" 
     class="post-content">
-    <h1 id="并发编程"><a class="markdownIt-Anchor" href="#并发编程"></a> 并发编程</h1>
-<p><strong>如果逻辑控制流在时间上重叠，那么他们就是并发的（concurrent）。常见的并发编程模式有：进程，线程，IO多路复用。</strong></p>
+    <p><strong>“如果逻辑控制流在时间上重叠，那么他们就是并发的（concurrent），这种常见的现象称为并发（concurrency）。现代操作系统提供了三种基本的构造并发程序的方法：进程，线程，I/O多路复用。”——《深入理解计算机系统》</strong></p>
+<p><img src="/images/processing.jpeg" alt="进程就像工厂里不同的生产线" / srcset="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" data-src="/images/processing.jpeg" class="lozad post-image"></p>
 <h2 id="进程"><a class="markdownIt-Anchor" href="#进程"></a> 进程</h2>
-<p>![images]</p>
+<h3 id="进程是什么"><a class="markdownIt-Anchor" href="#进程是什么"></a> 进程是什么?</h3>
+<h3 id="进程创建"><a class="markdownIt-Anchor" href="#进程创建"></a> 进程创建</h3>
+<h3 id="进程间通信"><a class="markdownIt-Anchor" href="#进程间通信"></a> 进程间通信</h3>
+<h3 id=""><a class="markdownIt-Anchor" href="#"></a> </h3>
 
   </div>
   <div>
@@ -713,7 +763,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B"><span class="toc-text"> 并发编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B"><span class="toc-text"> 进程</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B"><span class="toc-text"> 进程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text"> 进程是什么?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E5%88%9B%E5%BB%BA"><span class="toc-text"> 进程创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="toc-text"> 进程间通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text"> </span></a></li></ol></li></ol>
 </div>
 
             </main>
@@ -728,7 +778,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B"><span class="toc-text"> 并发编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B"><span class="toc-text"> 进程</span></a></li></ol></li></ol>
+<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B"><span class="toc-text"> 进程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-text"> 进程是什么?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E5%88%9B%E5%BB%BA"><span class="toc-text"> 进程创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="toc-text"> 进程间通信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-text"> </span></a></li></ol></li></ol>
     </article>
   
   
@@ -744,7 +794,7 @@
     
       <div class="recent-posts-item">
         <div class="recent-posts-item-title">2022-08-28</div>
-        <a href="/2022/08/28/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E4%B8%8EIO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/"><div class="recent-posts-item-content">进程、线程与IO多路复用</div></a>
+        <a href="/2022/08/28/%E8%BF%9B%E7%A8%8B%E3%80%81%E7%BA%BF%E7%A8%8B%E4%B8%8EIO%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/"><div class="recent-posts-item-content">进程、线程与I/O多路复用</div></a>
       </div>
     
   </div>
