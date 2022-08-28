@@ -67,10 +67,6 @@
             property="og:article:tag" 
             content="并发编程">
         
-          <meta 
-            property="og:article:tag" 
-            content="操作系统">
-        
       
     
   
@@ -279,12 +275,14 @@
     <button 
       class="navbar-menu-item darknavbar navbar-menu-btn" 
       aria-label="Toggle dark mode"
+      display="none"
       id="dark">
       <i class="iconfont icon-weather"></i>
     </button>
     <button 
       class="navbar-menu-item searchnavbar navbar-menu-btn" 
       aria-label="Toggle search"
+      style="display: none"
       id="search">
       <!-- <i 
         class="iconfont icon-search" 
@@ -301,7 +299,8 @@
       </svg>
     </button>
   </div>
-</nav> 
+</nav>
+ 
       
       <div 
         id="local-search" 
@@ -345,7 +344,7 @@
   <a 
     class="author-tags-count" 
     href="/tags">
-    <span>4</span>
+    <span>3</span>
     <span>标签</span>
   </a>
 </div>
@@ -498,7 +497,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B"><span class="toc-text"> 并发编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B"><span class="toc-text"> 进程</span></a></li></ol></li></ol>
       </div>
     </article>
   
@@ -533,12 +532,6 @@
     </i>热门标签
   </div>
   <div class="tags-list">
-    
-      <a 
-        href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" 
-        title="操作系统">
-        <div class="tags-list-item">操作系统</div>
-      </a>
     
       <a 
         href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" 
@@ -593,7 +586,7 @@
     
     
       <span class="dot"></span>
-      <span>0 字</span>
+      <span>49 字</span>
     
   </div>
   
@@ -631,15 +624,6 @@
             并发编程
           </a>
         
-          
-            <span class="dot"></span>
-          
-          <a 
-            href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" 
-            class="post-meta-link">
-            操作系统
-          </a>
-        
       </div>
     </div>
   
@@ -647,7 +631,11 @@
   <div 
     id="section" 
     class="post-content">
-    
+    <h1 id="并发编程"><a class="markdownIt-Anchor" href="#并发编程"></a> 并发编程</h1>
+<p><strong>如果逻辑控制流在时间上重叠，那么他们就是并发的（concurrent）。常见的并发编程模式有：进程，线程，IO多路复用。</strong></p>
+<h2 id="进程"><a class="markdownIt-Anchor" href="#进程"></a> 进程</h2>
+<p>![images]</p>
+
   </div>
   <div>
     
@@ -725,7 +713,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B"><span class="toc-text"> 并发编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B"><span class="toc-text"> 进程</span></a></li></ol></li></ol>
 </div>
 
             </main>
@@ -740,7 +728,7 @@
     style="padding-right: 2px;">
   </i>目录
 </div>
-
+<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B"><span class="toc-text"> 并发编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E7%A8%8B"><span class="toc-text"> 进程</span></a></li></ol></li></ol>
     </article>
   
   
@@ -947,10 +935,6 @@
     <script src="//instant.page/5.1.0" type="module"
       integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
     
-    
-      <script>
-        setTimeout(() => {localSearch("search.json")}, 0)
-      </script>
     
   </body>
 </html>

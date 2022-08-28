@@ -245,12 +245,14 @@
     <button 
       class="navbar-menu-item darknavbar navbar-menu-btn" 
       aria-label="Toggle dark mode"
+      display="none"
       id="dark">
       <i class="iconfont icon-weather"></i>
     </button>
     <button 
       class="navbar-menu-item searchnavbar navbar-menu-btn" 
       aria-label="Toggle search"
+      style="display: none"
       id="search">
       <!-- <i 
         class="iconfont icon-search" 
@@ -267,7 +269,8 @@
       </svg>
     </button>
   </div>
-</nav> 
+</nav>
+ 
       
       <div 
         id="local-search" 
@@ -311,7 +314,7 @@
   <a 
     class="author-tags-count" 
     href="/tags">
-    <span>4</span>
+    <span>3</span>
     <span>标签</span>
   </a>
 </div>
@@ -489,12 +492,6 @@
   <div class="tags-list">
     
       <a 
-        href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" 
-        title="操作系统">
-        <div class="tags-list-item">操作系统</div>
-      </a>
-    
-      <a 
         href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" 
         title="并发编程">
         <div class="tags-list-item">并发编程</div>
@@ -559,18 +556,12 @@
     标签
   </div>
   <div>
-    共计&nbsp;4&nbsp;个标签
+    共计&nbsp;3&nbsp;个标签
   </div>
 </div>
 <div class="card card-content">
   <div class="tags-card">
     <div class="tags-list">
-      
-        <a 
-          href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" 
-          title="操作系统">
-          <div class="tags-list-item">操作系统</div>
-        </a>
       
         <a 
           href="/tags/%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" 
@@ -796,10 +787,6 @@
     <script src="//instant.page/5.1.0" type="module"
       integrity="sha384-by67kQnR+pyfy8yWP4kPO12fHKRLHZPfEsiSXR8u2IKcTdxD805MGUXBzVPnkLHw"></script>
     
-    
-      <script>
-        setTimeout(() => {localSearch("search.json")}, 0)
-      </script>
     
   </body>
 </html>
